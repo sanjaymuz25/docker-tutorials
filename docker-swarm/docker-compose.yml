@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    image: node_app
+    build: .
+    ports:
+      - 3000:3000
+    networks:
+      - node_app_network
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
