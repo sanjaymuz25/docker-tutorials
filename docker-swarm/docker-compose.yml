@@ -6,8 +6,6 @@ services:
     build: .
     ports:
       - 3000:3000
-    networks:
-      - node_app_network
     deploy:
       replicas: 2
       update_config:
